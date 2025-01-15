@@ -142,7 +142,7 @@ jobs:
           cd ${{ env.SOURCE_DIR }}
           mkdir build-x86_64 && cd build-x86_64
           cmake ${{ env.COMMON_CMAKE_OPTIONS }} -DANDROID_ABI="x86_64" \
-              `cat ../options.txt` -DBUILD_opencv_world=OFF -DOPENCV_DISABLE_FILESYSTEM_SUPPORT=ON -DBUILD_SHARED_LIBS=ON ..
+              `cat ../options.txt` -DBUILD_opencv_world=OFF -DOPENCV_DISABLE_FILESYSTEM_SUPPORT=ON -DWITH_OPENMP=OFF ..
           cmake --build . -j $(nproc)
           cmake --build . --target install
       - name: package
